@@ -18,6 +18,9 @@ public class GRAPH {
         Generates a random graph
     */
     public void randomGraph() {
+        this.numberOfComponents=0;
+        for (int i = 0; i < this.length; i++)
+            this.connectedComponents[i]=0;
         for (int i = 0; i < this.length; i++) {
             matrix[i][i] = 0;
             for (int j = i + 1; j < this.length; j++) {
@@ -157,6 +160,7 @@ public class GRAPH {
         Prints the tree matrix
      */
     public void printTreeMatrix() {
+        System.out.println("Generated tree matrix:");
         for (int i = 0; i < this.length; i++) {
             for (int j = 0; j < this.length; j++)
                 System.out.print(this.treeMatrix[i][j] + " ");
@@ -164,6 +168,60 @@ public class GRAPH {
         }
 
     }
+
+   /*
+
+        Starts the main function that displays a textual representation of the tree
+
+    */
+
+    public void printTreeText(int index)
+    {  boolean[] isVisited = new boolean[this.length];
+       System.out.println("Textual representation of the generated tree");
+       treeDFSText(0,0,isVisited);
+
+    }
+
+    /*
+        Displays a textual representation of the tree using DFS
+
+     */
+    public void treeDFSText(int index, int level,boolean[] isVisited)
+    {   boolean isTerminalNode=true;
+        int copy=level;
+
+        for (int i = 0; i < this.length; i++) {
+            if (treeMatrix[index][i] == 1&& !isVisited[i]) {
+                 if(!isVisited[index]) {
+                     isVisited[index]=true;
+                     isTerminalNode = false;
+                     while (copy > 0) {
+
+                         System.out.print(" ");
+                         copy--;
+                     }
+                     System.out.println("+node " + index);
+                 }
+                    level++;
+                    treeDFSText(i,level,isVisited);
+                    level--;
+
+            }
+        }
+
+        if(isTerminalNode)
+        { while(copy>0) {
+
+            System.out.print(" ");
+            copy--;
+        }
+            System.out.println("-node " + index);
+
+        }
+
+    }
+
+
 
 }
 

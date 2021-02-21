@@ -8,9 +8,32 @@ public class Main {
     {
         return Math.floor(number) == number && number > 0;
     }
+
+    /*
+     Creates a random node tree
+    */
+    public static void randomTree(int length)
+    {
+      GRAPH tree = new GRAPH(length);
+      tree.randomGraph();
+      tree.connectedComponentsFunction();
+      int connectedComponents=tree.getNumberOfComponents();
+      while(connectedComponents!=1)
+      {
+          tree.randomGraph();
+          tree.connectedComponentsFunction();
+          connectedComponents=tree.getNumberOfComponents();
+      }
+        tree.createTreeMatrix();
+      tree.printTreeMatrix();
+        tree.printTreeText(0);
+
+
+    }
     public static void main(String[] args) {
 
         double number =Integer.parseInt(args[0]);
+
         if(isValid(number))
         {  int length=(int)(number);
 
@@ -38,7 +61,8 @@ public class Main {
         {
             System.out.println("The argument is not valid!");
         }
-
+        System.out.println("Random tree generated and textual representation");
+        randomTree(7);
 
 
 
