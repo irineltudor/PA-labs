@@ -9,15 +9,12 @@ public class Source {
     //Class methods
 
     //Constructors
-    Source(String name,int type,int supply)
+    Source() { }
+    Source(String name,SourceType source,int supply)
     {
         this.name=name;
         this.supply=supply;
-        if(type==1)
-        {
-            this.source=SourceType.WAREHOUSE;
-        }
-        else this.source=SourceType.FACTORY;
+        this.source=source;
     }
 
     //Getters
@@ -37,6 +34,8 @@ public class Source {
 
 
     public void setName(String name) {
+        if(name==null)
+            throw new IllegalArgumentException("Name cannot be null");
         this.name = name;
     }
 

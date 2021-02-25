@@ -2,6 +2,7 @@ package com.Lab2.optional;
 
 public class Warehouse extends Factory {
 
+    //Constructor
     Warehouse(String name, int supply) {
         super(name, supply);
 

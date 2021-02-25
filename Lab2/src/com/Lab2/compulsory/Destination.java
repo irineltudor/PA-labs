@@ -9,6 +9,7 @@ public class Destination {
     //Class methods
 
     //Constructors
+    Destination(){}
     Destination(String name,int demand)
     {
         this.name=name;
@@ -27,6 +28,9 @@ public class Destination {
     //Setters
 
     public void setName(String name) {
+
+        if(name==null)
+            throw new IllegalArgumentException("Name cannot be null");
         this.name = name;
     }
 
@@ -36,7 +40,7 @@ public class Destination {
 
     @Override
     public String toString() {
-        return "Destination's name is " + name +  " and needs " + this.demand + " commodities ";
+        return "Destination's name is " + name +  " and demands " + this.demand + " commodities ";
     }
 
 }
