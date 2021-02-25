@@ -15,7 +15,7 @@ public class Problem {
     This function is adding sources to a vector with sources and tests if a source already exists
      */
     public void addSource(Source source) {
-        if (allSources.indexOf(source) == -1)
+        if (!allSources.contains(source))
             allSources.add(source);
         else {
             System.out.println("Source (" + source + ") already exists");
@@ -26,7 +26,7 @@ public class Problem {
     This function is adding destinations to a vector with destinations and tests if a destination already exists
      */
     public void addDestinations(Destination destination) {
-        if (allDestinations.indexOf(destination) == -1)
+        if (!allDestinations.contains(destination))
             allDestinations.add(destination);
         else {
             System.out.println("Destination already exists");
@@ -39,7 +39,7 @@ public class Problem {
     public void createMatrix() {
         for (int i = 0; i <= allSources.size() + 1; i++) {
             for (int j = 0; j <= allDestinations.size() + 1; j++) {
-                costMatrix[i][j] = "00";
+                costMatrix[i][j] = " 0";
             }
 
         }
