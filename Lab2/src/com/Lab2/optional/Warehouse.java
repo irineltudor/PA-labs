@@ -1,8 +1,9 @@
 package com.Lab2.optional;
 
-public class Warehouse extends Factory {
+public class Warehouse extends Source {
 
     //Constructor
+
     Warehouse(String name, int supply) {
         super(name, supply);
 

@@ -2,6 +2,7 @@ package com.Lab2.optional;
 
 
 
+import java.util.Random;
 import java.util.Vector;
 
 public class Problem {
@@ -11,6 +12,19 @@ public class Problem {
     Vector<Destination> allDestinations = new Vector<>(10);
 
     //class methods
+
+    /**
+     * Getters
+     */
+    public int getSuppliers()
+    {
+        return allSources.size();
+    }
+    public int getDemanders()
+    {
+        return allDestinations.size();
+    }
+
     /*
     This function is adding sources to a vector with sources and tests if a source already exists
      */
@@ -33,16 +47,25 @@ public class Problem {
         }
     }
 
+
     /*
      This function creates the cost matrix
      */
     public void createMatrix() {
+        Random random=new Random();
+
         for (int i = 0; i <= allSources.size() + 1; i++) {
             for (int j = 0; j <= allDestinations.size() + 1; j++) {
-                costMatrix[i][j] = " 0";
+                costMatrix[i][j] = String.valueOf(random.nextInt(9 - 1 + 1) + 1);
             }
 
         }
+        costMatrix[0][0]="0";
+        costMatrix[0][allDestinations.size()+1]="0";
+        costMatrix[allSources.size()+1][allDestinations.size()+1]="0";
+        costMatrix[allSources.size()+1][0]="0";
+
+
         for (int i = 1; i <= allSources.size(); i++) {
             costMatrix[i][0] = allSources.get(i - 1).getName();
             costMatrix[i][allDestinations.size() + 1] = String.valueOf(allSources.get(i - 1).getSupply());

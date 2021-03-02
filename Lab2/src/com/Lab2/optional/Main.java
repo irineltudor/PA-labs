@@ -6,8 +6,8 @@ public class Main {
     public static void main(String[] args) {
 
         Factory S1=new Factory("S1",10);
-        Warehouse S2=new Warehouse("S1",35);
-        Warehouse S3=new Warehouse("S1",25);
+        Warehouse S2=new Warehouse("S2",35);
+        Warehouse S3=new Warehouse("S3",25);
         Factory S4=new Factory("S1",10);
         Destination D1=new Destination("D1",20);
         Destination D2=new Destination("D2",25);
@@ -24,6 +24,9 @@ public class Main {
         prob.addDestinations(D2);
         prob.addDestinations(D3);
         prob.createMatrix();
+
+        Solution sol = new Solution(prob.costMatrix,prob.getSuppliers(),prob.getDemanders());
+        sol.problemSolution();
 
     }
 }

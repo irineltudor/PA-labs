@@ -3,9 +3,9 @@ package com.Lab2.compulsory;
 public class Source {
     //Class members
 
-    private String name;
-    private SourceType source;
-    private int supply;
+   protected String name;
+    protected  SourceType source;
+    protected  int supply;
     //Class methods
 
     //Constructors

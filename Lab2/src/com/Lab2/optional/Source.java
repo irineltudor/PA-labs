@@ -10,6 +10,7 @@ abstract public class Source {
     //Class methods
 
     //Constructors
+    Source(){}
     Source(String name, int supply) {
         this.name = name;
         this.supply = supply;

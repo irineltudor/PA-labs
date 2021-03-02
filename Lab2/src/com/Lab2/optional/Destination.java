@@ -11,6 +11,7 @@ public class Destination {
     //Class methods
 
     //Constructors
+    Destination(){}
     Destination(String name, int demand)
     {
         this.name=name;
