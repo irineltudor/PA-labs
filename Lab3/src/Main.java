@@ -12,6 +12,8 @@ public class Main {
         Church[] churches=new Church[2];
         churches[0]=new Church("Church A");
         churches[1]=new Church("Church B");
+        churches[0].setOpeningTime(LocalTime.of(10,30));
+        churches[1].setOpeningTime(LocalTime.of(9,30));
 
         Restaurant[] restaurants=new Restaurant[1];
         restaurants[0]=new Restaurant("Restaurant");
@@ -40,6 +42,23 @@ public class Main {
 
         firstCity.print();
         firstCity.costTable();
+        firstCity.visitableFree();
+
+
+        firstCity.createMatrix();
+
+        TravelPlan travel=new TravelPlan("prima excursie",firstCity);
+
+
+        travel.shortestPath(hotels[0],churches[1]);
+        travel.shortestPath(hotels[0],restaurants[0]);
+
+
+
+
+
+
+
 
     }
 }
