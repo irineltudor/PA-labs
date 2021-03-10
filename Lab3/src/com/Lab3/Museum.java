@@ -1,20 +1,18 @@
+package com.Lab3;
 import java.time.LocalTime;
 import java.util.Comparator;
-import java.util.HashMap;
 import java.util.List;
 
-public class Restaurant extends Location implements Visitable,Classifiable{
-    HashMap<String,Integer> hm = new HashMap< String,Integer>();
+public class Museum extends Location implements Visitable,Payable{
     private LocalTime openingTime, closingTime;
-    private String rank;
+    private double ticketPrice;
 
     //Constructor
-    Restaurant(){}
-    Restaurant(String name)
+    Museum(){}
+    Museum(String name)
     {
         super(name);
     }
-
     @Override
     public LocalTime getOpeningTime() {
         return openingTime;
@@ -29,14 +27,12 @@ public class Restaurant extends Location implements Visitable,Classifiable{
     public void setClosingTime(LocalTime closingTime) {
         this.closingTime = closingTime;
     }
-
-    public void setRank(String rank) {
-        this.rank=rank;
+    @Override
+    public double getTicketPrice() {
+        return ticketPrice;
     }
 
-
-    @Override
-    public String classification() {
-        return this.rank;
+    public void setTicketPrice(double ticketPrice) {
+        this.ticketPrice = ticketPrice;
     }
 }

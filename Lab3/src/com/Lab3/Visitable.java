@@ -1,3 +1,4 @@
+package com.Lab3;
 import java.time.Duration;
 import java.time.LocalTime;
 

@@ -1,8 +1,6 @@
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.List;
+package com.Lab3;
 
-public class Hotel extends Location implements Payable,Classifiable{
+public class Hotel extends Location implements Payable, Classifiable {
 
     private String rank;
     private double ticketPrice;

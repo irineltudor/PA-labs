@@ -1,9 +1,9 @@
-import java.time.LocalTime;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.List;
+package com.Lab3;
 
-public class Church extends Location implements Visitable{
+import java.time.LocalTime;
+import java.util.HashMap;
+
+public class Church extends Location implements Visitable {
     HashMap<String,Integer> hm = new HashMap< String,Integer>();
     private LocalTime openingTime, closingTime;
     //Constructor
