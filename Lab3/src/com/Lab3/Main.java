@@ -1,3 +1,4 @@
+package com.Lab3;
 import java.time.LocalTime;
 
 public class Main {
@@ -49,7 +50,7 @@ public class Main {
 
         TravelPlan travel=new TravelPlan("prima excursie",firstCity);
 
-
+        travel.setPreferences(new int[]{1, 2, 3, 4, 5, 6});
         travel.shortestPath(hotels[0],churches[1]);
         travel.shortestPath(hotels[0],restaurants[0]);
 

@@ -1,6 +1,8 @@
+package com.Lab3;
 public class TravelPlan {
     private String name;
     private City city = new City();
+    private int[] preferences=new int[100];
 
     //Constructor
     TravelPlan() {
@@ -16,22 +18,34 @@ public class TravelPlan {
         this.name = name;
     }
 
-  //Getter
+    public void setPreferences(int[] preferences) {
+        this.preferences = preferences;
+    }
+
+    //Getter
     public String getName() {
         return name;
     }
+
 
     public int minDistance(int[] d, boolean[] isVisited)
     {
         // Initialize min value
         int min = 10000, min_index=0;
 
-        for (int i = 0; i < d.length; i++)
-            if (!isVisited[i] && d[i] <= min)
-            {
+        for (int i = 0; i < d.length; i++) {
+            if (!isVisited[i] && d[i] < min) {
+
+                    min = d[i];
+                min_index = i;
+
+            }
+            if(min==d[i] && preferences[i]>preferences[min_index]) {
                 min = d[i];
                 min_index = i;
             }
+        }
+
 
         return min_index;
     }
