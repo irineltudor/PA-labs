@@ -7,7 +7,7 @@ import java.util.stream.IntStream;
 public class Main {
     public static void main(String[] args) {
         var students = IntStream.rangeClosed(0, 3).mapToObj(i -> new Student("S" + i)).toArray(Student[]::new);
-        LinkedList<Student> studentList = new LinkedList<>(Arrays.asList(students));
+        List<Student> studentList = new LinkedList<>(Arrays.asList(students));
         Collections.sort(studentList,Comparator.comparing(Student::getName));
 
         var schools = IntStream.rangeClosed(0, 2).mapToObj(i -> new School("H" + i)).toArray(School[]::new);
@@ -19,23 +19,6 @@ public class Main {
         stdPrefMap.put(students[1],Arrays.asList(schools[0],schools[1],schools[2]));
         stdPrefMap.put(students[2], Arrays.asList(schools[0],schools[1]));
         stdPrefMap.put(students[3],Arrays.asList(schools[0],schools[2]));
-
-        LinkedList<Student> studentList1 = new LinkedList<>();
-        studentList1.add(students[3]);
-        studentList1.add(students[0]);
-        studentList1.add(students[1]);
-        studentList1.add(students[2]);
-
-        LinkedList<Student> studentList2 = new LinkedList<>();
-        studentList2.add(students[0]);
-        studentList2.add(students[2]);
-        studentList2.add(students[1]);
-
-        LinkedList<Student> studentList3 = new LinkedList<>();
-        studentList3.add(students[0]);
-        studentList3.add(students[1]);
-        studentList3.add(students[3]);
-
 
 
         schoolPrefMap.put(schools[0], Arrays.asList(students[3], students[0], students[1],students[2]));
