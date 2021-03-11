@@ -14,7 +14,7 @@ public class Main {
         TreeSet<School> schoolList = new TreeSet<School>(Arrays.asList(schools));
 
         Map<Student, List<School>> stdPrefMap = new LinkedHashMap<>();
-        Map<School, List<Student>> schoolPrefMap = new LinkedHashMap<>();
+        Map<School, List<Student>> schoolPrefMap = new TreeMap<>();
         stdPrefMap.put(students[0], Arrays.asList(schools[0],schools[1],schools[2]));
         stdPrefMap.put(students[1],Arrays.asList(schools[0],schools[1],schools[2]));
         stdPrefMap.put(students[2], Arrays.asList(schools[0],schools[1]));
