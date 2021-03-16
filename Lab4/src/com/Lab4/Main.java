@@ -1,4 +1,5 @@
 package com.Lab4;
+import com.github.javafaker.Faker;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -6,15 +7,17 @@ import java.util.stream.IntStream;
 
 public class Main {
     public static void main(String[] args) {
-        var students = IntStream.rangeClosed(0, 3).mapToObj(i -> new Student("S" + i)).toArray(Student[]::new);
+        Faker faker=new Faker();
+        var students = IntStream.rangeClosed(0, 3).mapToObj(i -> new Student(faker.name().fullName())).toArray(Student[]::new);
         List<Student> studentList = new LinkedList<>(Arrays.asList(students));
         Collections.sort(studentList,Comparator.comparing(Student::getName));
+        int[] capacity={1,2,2};
+        var schools = IntStream.rangeClosed(0, 2).mapToObj(i -> new School(faker.university().name(),capacity[i])).toArray(School[]::new);
+        List<School> schoolList = new LinkedList<>(Arrays.asList(schools));
 
-        var schools = IntStream.rangeClosed(0, 2).mapToObj(i -> new School("H" + i)).toArray(School[]::new);
-        TreeSet<School> schoolList = new TreeSet<School>(Arrays.asList(schools));
 
-        Map<Student, List<School>> stdPrefMap = new LinkedHashMap<>();
-        Map<School, List<Student>> schoolPrefMap = new TreeMap<>();
+        HashMap<Student, List<School>> stdPrefMap = new LinkedHashMap<>();
+        HashMap<School, List<Student>> schoolPrefMap = new LinkedHashMap<>();
         stdPrefMap.put(students[0], Arrays.asList(schools[0],schools[1],schools[2]));
         stdPrefMap.put(students[1],Arrays.asList(schools[0],schools[1],schools[2]));
         stdPrefMap.put(students[2], Arrays.asList(schools[0],schools[1]));
@@ -29,7 +32,7 @@ public class Main {
             System.out.print(entry.getKey().getName() + " : ");
             List<School> print= entry.getValue();
             for(School school : print){
-                System.out.print(school.getName() + " ");
+                System.out.print(school.getName() + ", ");
             }
             System.out.println();
         }
@@ -38,10 +41,28 @@ public class Main {
             System.out.print(entry.getKey().getName() + " : ");
             List<Student> print = entry.getValue();
             for(Student student : print){
-                System.out.print(student.getName() + " ");
+                System.out.print(student.getName() + ", ");
             }
             System.out.println();
         }
+
+       Problem problem=new Problem(studentList,schoolList,stdPrefMap,schoolPrefMap);
+       List<School> newList = problem.schoolAccepts(problem.getStudentList());
+       List<Student> newList1=problem.studentsAccepts(problem.getSchoolList());
+        for (School school:newList
+             ) {
+            System.out.print(school.getName() + ", ");
+
+        }
+        System.out.println();
+
+        for (Student student:newList1
+        ) {
+            System.out.print(student.getName() + ", ");
+
+        }
+        System.out.println();
+
 
 
     }
