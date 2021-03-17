@@ -2,7 +2,6 @@ package com.Lab4;
 import com.github.javafaker.Faker;
 
 import java.util.*;
-import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class Main {
