@@ -44,7 +44,7 @@ public class Main {
         return schoolPrefMap;
     }
     /*
-      Compulsory exercise + solution for the example
+      Compulsory exercise + solution for the example + using problem acceptance methods
      */
     public static void firstProblemAndSolution()
     {
@@ -94,7 +94,7 @@ public class Main {
     }
 
     /*
-     New input for the problem using fake names for students and universities and solving the problem for this input
+     New input for the problem using fake names for students and universities ,then solving the problem for this input
      */
     public static void fakeNamesAndAlgorithm()
     {   Faker faker=new Faker();
@@ -128,7 +128,6 @@ public class Main {
         stdPrefMap.put(students[3],Arrays.asList(schools[0],schools[2]));
         stdPrefMap.put(students[4],Arrays.asList(schools[0],schools[2],schools[3]));
         HashMap<School, List<Student>> schoolPrefMap =createMapSchoolPreff(stdPrefMap,schoolList,studentList);
-
         Solver solution=new Solver(studentList,schoolList,stdPrefMap,schoolPrefMap);
         System.out.println(solution.resolveProblem());
 
