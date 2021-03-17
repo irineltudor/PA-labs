@@ -6,7 +6,9 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class Main {
-
+    /*
+       Creates the School - Students Map for the problem
+     */
     public static HashMap<School,List<Student>> createMapSchoolPreff(HashMap<Student, List<School>> stdPrefMap,List<School> schools,List<Student> students)
     {   HashMap<School, List<Student>> schoolPrefMap =new LinkedHashMap<>();
         for (School school: schools)
@@ -41,6 +43,9 @@ public class Main {
 
         return schoolPrefMap;
     }
+    /*
+      Compulsory exercise + solution for the example
+     */
     public static void firstProblemAndSolution()
     {
         var students = IntStream.rangeClosed(0, 3).mapToObj(i -> new Student("S" + i )).toArray(Student[]::new);
@@ -84,10 +89,13 @@ public class Main {
         Problem problem=new Problem(studentList,schoolList,stdPrefMap,schoolPrefMap);
         problem.printStudentsAndSchoolAccepts();
 
-        Solution solution=new Solution(studentList,schoolList,stdPrefMap,schoolPrefMap);
-        solution.printSolutionForExample();
-        solution.resolveProblem();
+        Solver solution=new Solver(studentList,schoolList,stdPrefMap,schoolPrefMap);
+        System.out.println(solution.resolveProblem());
     }
+
+    /*
+     New input for the problem using fake names for students and universities and solving the problem for this input
+     */
     public static void fakeNamesAndAlgorithm()
     {   Faker faker=new Faker();
         var students = IntStream.rangeClosed(0, 4).mapToObj(i -> new Student(faker.name ().fullName())).toArray(Student[]::new);
@@ -121,8 +129,8 @@ public class Main {
         stdPrefMap.put(students[4],Arrays.asList(schools[0],schools[2],schools[3]));
         HashMap<School, List<Student>> schoolPrefMap =createMapSchoolPreff(stdPrefMap,schoolList,studentList);
 
-        Solution solution=new Solution(studentList,schoolList,stdPrefMap,schoolPrefMap);
-        solution.resolveProblem();
+        Solver solution=new Solver(studentList,schoolList,stdPrefMap,schoolPrefMap);
+        System.out.println(solution.resolveProblem());
 
     }
     public static void main(String[] args) {
