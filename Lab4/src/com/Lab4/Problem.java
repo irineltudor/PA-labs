@@ -69,4 +69,23 @@ public class Problem {
     {
         return studentList.stream().filter(std -> studentPreferences.get(std).containsAll(target)).collect(Collectors.toList());
     }
+
+    public void printStudentsAndSchoolAccepts()
+    { List<School> newList = schoolAccepts(getStudentList());
+        List<Student> newList1=studentsAccepts(getSchoolList());
+        for (School school:newList
+        ) {
+            System.out.print(school.getName() + " ");
+
+        }
+        System.out.println();
+
+        for (Student student:newList1
+        ) {
+            System.out.print(student.getName() + " ");
+
+        }
+        System.out.println();
+
+    }
 }

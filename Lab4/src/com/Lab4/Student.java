@@ -16,7 +16,7 @@ public class Student {
     Student(String name) {
         this.name = name;
         Random random = new Random();
-        this.score=random.nextInt(10 - 5 + 1) + 1;
+        this.score=random.nextInt(10 - 5 + 1) + 5;
     }
 
     //Setters
@@ -35,5 +35,10 @@ public class Student {
 
     public int getScore() {
         return score;
+    }
+
+    public boolean compareTo(Student anotherStudent)
+    {
+        return this.score > anotherStudent.getScore();
     }
 }

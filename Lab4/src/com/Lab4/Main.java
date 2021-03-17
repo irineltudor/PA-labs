@@ -6,13 +6,13 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class Main {
-    public static void main(String[] args) {
-        Faker faker=new Faker();
-        var students = IntStream.rangeClosed(0, 3).mapToObj(i -> new Student(faker.name().fullName())).toArray(Student[]::new);
+    public static void firstProblemAndSolution()
+    {
+        var students = IntStream.rangeClosed(0, 3).mapToObj(i -> new Student("S" + i )).toArray(Student[]::new);
         List<Student> studentList = new LinkedList<>(Arrays.asList(students));
-        Collections.sort(studentList,Comparator.comparing(Student::getName));
+        studentList.sort(Comparator.comparing(Student::getName));
         int[] capacity={1,2,2};
-        var schools = IntStream.rangeClosed(0, 2).mapToObj(i -> new School(faker.university().name(),capacity[i])).toArray(School[]::new);
+        var schools = IntStream.rangeClosed(0, 2).mapToObj(i -> new School("H" + i ,capacity[i])).toArray(School[]::new);
         List<School> schoolList = new LinkedList<>(Arrays.asList(schools));
 
 
@@ -46,24 +46,36 @@ public class Main {
             System.out.println();
         }
 
-       Problem problem=new Problem(studentList,schoolList,stdPrefMap,schoolPrefMap);
-       List<School> newList = problem.schoolAccepts(problem.getStudentList());
-       List<Student> newList1=problem.studentsAccepts(problem.getSchoolList());
-        for (School school:newList
-             ) {
-            System.out.print(school.getName() + ", ");
+        Problem problem=new Problem(studentList,schoolList,stdPrefMap,schoolPrefMap);
+        problem.printStudentsAndSchoolAccepts();
+
+        Solution solution=new Solution(studentList,schoolList,stdPrefMap,schoolPrefMap);
+        solution.printSolution();
+    }
+    public static void fakeNamesAndAlgorithm()
+    {   Faker faker=new Faker();
+        var students = IntStream.rangeClosed(0, 3).mapToObj(i -> new Student(faker.name ().fullName())).toArray(Student[]::new);
+        List<Student> studentList = new LinkedList<>(Arrays.asList(students));
+        studentList.sort(Comparator.comparing(Student::getScore));
+        Collections.reverse(studentList);
+        int[] capacity={3,1,2};
+        var schools = IntStream.rangeClosed(0, 2).mapToObj(i -> new School(faker.university().name() ,capacity[i])).toArray(School[]::new);
+        List<School> schoolList = new LinkedList<>(Arrays.asList(schools));
+        schoolList.sort(Comparator.comparing(School::getCapacity));
+        for (Student student:studentList
+        ) { System.out.println(student.getName() + " : " + student.getScore());
 
         }
-        System.out.println();
 
-        for (Student student:newList1
-        ) {
-            System.out.print(student.getName() + ", ");
+        for (School school:schoolList
+             ) { System.out.println(school.getName() + " : " + school.getCapacity());
 
         }
-        System.out.println();
 
+    }
+    public static void main(String[] args) {
 
+        fakeNamesAndAlgorithm();
 
     }
 }
