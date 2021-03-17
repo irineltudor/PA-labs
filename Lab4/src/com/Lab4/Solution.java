@@ -66,7 +66,7 @@ public class Solution {
 
     //Functions
 
-    public void printSolution()
+    public void printSolutionForExample()
     {
         HashMap<Student,School> solution=new HashMap<>();
         solution.put(studentList.get(0),schoolList.get(1));
@@ -79,6 +79,32 @@ public class Solution {
             }
             System.out.println();
         }
-    }
+
+
+
+        public void resolveProblem()
+        {   HashMap<Student,School> solution=new HashMap<>();
+            int[] applied=new int[studentList.size()];
+
+            for (Map.Entry<School, List<Student>> entry : schoolPreferences.entrySet()) {
+                List<Student> students = entry.getValue();
+                for (Student student : students) {
+                    if (applied[studentList.indexOf(student)] == 0 && entry.getKey().getCapacity()>0) {
+                        solution.put(student, entry.getKey());
+                        entry.getKey().setCapacity(entry.getKey().getCapacity()-1);
+                        applied[studentList.indexOf(student)] = 1;
+                    }
+                }
+            }
+
+                for(Map.Entry<Student,School> entry : solution.entrySet())
+                {   System.out.println(entry.getKey().getName() + " : " + entry.getValue().getName());
+
+                }
+                System.out.println();
+            }
+
+}
+
 
 

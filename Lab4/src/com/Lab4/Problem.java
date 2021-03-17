@@ -5,6 +5,7 @@ import java.util.stream.Collectors;
 
 public class Problem {
     //Class members
+
     private List<Student> studentList;
     private List<School> schoolList;
     private HashMap<Student , List<School>> studentPreferences;
@@ -88,4 +89,7 @@ public class Problem {
         System.out.println();
 
     }
+
+
+
 }
