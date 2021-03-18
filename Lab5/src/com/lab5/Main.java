@@ -11,7 +11,7 @@ public class Main {
 
     private void testCreateSave() throws IOException, InvalidYearException {
         Catalog catalog =
-                new Catalog("My Books", "E:\\work\\Facultate\\PA-labs\\Lab5\\media\\catalog.ser");
+                new Catalog("My Songs and books", "E:\\work\\Facultate\\PA-labs\\Lab5\\media\\catalog.ser");
         var song = new Song("bestSong" , "Lost", "E:\\work\\Facultate\\PA-labs\\Lab5\\media\\songs\\Lost.mp3", "2018");
         var book = new Book("bestBook" ,"Scufita Rosie", "E:\\work\\Facultate\\PA-labs\\Lab5\\media\\books\\Scufita rosie.pdf");
         catalog.add(song);
