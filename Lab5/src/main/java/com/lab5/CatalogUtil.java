@@ -51,7 +51,7 @@ public class CatalogUtil implements Serializable {
 
     }
 
-        public static void view(Item item) {
+        public static void play(Item item) {
             try {
                 Desktop desktop = Desktop.getDesktop();
                 File myFile = new File(item.getLocation());

@@ -17,6 +17,10 @@ public class Catalog implements Serializable {
         this.path = path;
     }
 
+    Catalog() {
+
+    }
+
     //Getters
     public String getName() {
         return name;
@@ -34,7 +38,9 @@ public class Catalog implements Serializable {
         this.name = name;
     }
 
-
+    public void setPath(String path) {
+        this.path = path;
+    }
 
     public void setItems(List<Item> items) {
         this.items = items;
