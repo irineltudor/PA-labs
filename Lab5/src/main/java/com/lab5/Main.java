@@ -31,10 +31,10 @@ public class Main {
         CatalogUtil.play(catalog.findById("bestBook"));
 
     }
-    private static void ShellCommands() throws IOException, InvalidNumberOfVariables, InvalidCommandException, InvalidCatalogException {
+    private static void ShellCommands() throws InvalidNumberOfVariables, InvalidCommandException, InvalidCatalogException {
         Scanner scanner = new Scanner(System.in);
         Catalog catalog = new Catalog();
-        int validCommand = 0;
+        int validCommand;
         while (true) {
             System.out.print("command>");
             validCommand = 0;
