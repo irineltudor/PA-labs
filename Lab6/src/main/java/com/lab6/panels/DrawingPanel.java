@@ -1,20 +1,30 @@
 package com.lab6.panels;
 
 import com.lab6.MainFrame;
+import com.lab6.shapes.FreeDrawing;
 import com.lab6.shapes.RegularPolygon;
+import com.lab6.shapes.NodeShape;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
+import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.Random;
+
+
 
 public class DrawingPanel extends JPanel {
     final MainFrame frame;
     final static int W = 800, H = 600;
     BufferedImage image; //the offscreen image
     Graphics2D graphics; //the "tools" needed to draw in the image
+    LinkedList<Shape> shapes=new LinkedList<Shape>();
+    LinkedList<Color> shapesColor=new LinkedList<Color>();
+    HashMap<String,Color> colors=new HashMap<String,Color>();
+    FreeDrawing freeDrawing=new FreeDrawing();
     public DrawingPanel(MainFrame frame) {
         this.frame = frame; createOffscreenImage(); init();
     }
@@ -33,19 +43,108 @@ public class DrawingPanel extends JPanel {
     private void init() {
         setPreferredSize(new Dimension(W, H)); //don’t use setSize. Why?
         setBorder(BorderFactory.createEtchedBorder()); //for fun
-        this.addMouseListener(new MouseAdapter() {
+        colors.put("Black",new Color(0,0,0));
+        colors.put("Random",new Color(new Random().nextInt(128) + 128, new Random().nextInt(128) + 128, new Random().nextInt(128) + 128));
+        MouseAdapter mouse=new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
-                drawShape(e.getX(), e.getY()); repaint();
-            } //Can’t use lambdas, JavaFX does a better job in these cases
-        });
+                if(frame.configPanel.addOrRemove.getSelectedItem()=="Add") {
+                    freeDrawing.addNew(e.getX(),e.getY());
+                    drawShape(e.getX(), e.getY());
+                    repaint();
+
+
+                }
+                else {
+                    deleteShape(e.getX(),e.getY());
+                    repaint();
+
+                }
+
+            }
+
+            @Override
+            public void mouseDragged(MouseEvent e) {
+                if(frame.configPanel.addOrRemove.getSelectedItem()=="Add" && frame.configPanel.shapes.getSelectedItem()=="Free Drawing")
+                {   Color color;
+                    if(frame.configPanel.colorCombo.getSelectedItem()=="Black")
+                {
+                    color=colors.get("Black");
+                }
+                else{
+                    color=colors.get("Random");
+                }
+                graphics.setColor(color);
+                graphics.drawLine(freeDrawing.getCurrentX(),freeDrawing.getCurrentY(),e.getX(),e.getY());
+                    freeDrawing.addNew(e.getX(),e.getY());
+                    repaint();
+                }
+            }
+        };
+
+        this.addMouseListener(mouse);
+        this.addMouseMotionListener(mouse);
     }
     private void drawShape(int x, int y) {
-        int radius = new Random().nextInt(10) + 5;
-        int sides = (Integer) frame.configPanel.sidesField.getValue();///get the value from UI (in ConfigPanel)
-        Color color = (Color) frame.configPanel.colorCombo.getSelectedItem(); //Value got from selected item in ColorCombo
-        graphics.setColor(color);
-        graphics.fill(new RegularPolygon(x, y, radius, sides));
+        if(frame.configPanel.shapes.getSelectedItem()=="Regular Polygon") {
+            int radius = new Random().nextInt(20) + 5;
+            int sides = (Integer) frame.configPanel.sidesField.getValue();///get the value from UI (in ConfigPanel)
+            Color color; //Value got from selected item in ColorCombo
+            if(frame.configPanel.colorCombo.getSelectedItem()=="Black")
+            {
+                color=colors.get("Black");
+            }
+            else{
+                color=colors.get("Random");
+            }
+            graphics.setColor(color);
+            graphics.fill(new RegularPolygon(x, y, radius, sides));
+            shapes.add(new RegularPolygon(x, y, radius, sides));
+            shapesColor.add(color);
+        }
+        else
+        {  if(frame.configPanel.shapes.getSelectedItem()=="NodeShape") {
+            int radius = new Random().nextInt(20) + 5;
+            Color color;
+            if (frame.configPanel.colorCombo.getSelectedItem() == "Black") {
+                color = colors.get("Black");
+            } else {
+                color = colors.get("Random");
+            }
+            graphics.setColor(color);
+            graphics.fill(new NodeShape(x, y, radius));
+            shapes.add(new NodeShape(x, y, radius));
+            shapesColor.add(color);
+        }
+
+        }
+    }
+
+    private void deleteShape(int x,int y){
+        int savedI =-1;
+        for (int i = 0; i < shapes.size(); i++) {
+
+            if(shapes.get(i).contains(x,y)) {
+                savedI = i;
+            }
+        }
+        if(savedI >= 0) {
+            graphics.setColor(new Color(255, 255, 255));
+            graphics.fill(shapes.get(savedI));
+            for (int i = 0; i < shapes.size(); i++) {
+                if(i!=savedI)
+                {
+                    if(shapes.get(i).intersects(shapes.get(savedI).getBounds2D()))
+                    {
+                        graphics.setColor(shapesColor.get(i));
+                        graphics.fill(shapes.get(i));
+                    }
+                }
+            }
+            shapes.remove(savedI);
+            shapesColor.remove(savedI);
+        }
+
     }
     @Override
     public void update(Graphics g) { } //Why did I do that?
