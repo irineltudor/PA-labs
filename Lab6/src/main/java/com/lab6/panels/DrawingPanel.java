@@ -24,7 +24,7 @@ public class DrawingPanel extends JPanel {
     LinkedList<Shape> shapes= new LinkedList<>();
     LinkedList<Color> shapesColor= new LinkedList<>();
     HashMap<String,Color> colors= new HashMap<>();
-    FreeDrawing freeDrawing=new FreeDrawing();
+
     public DrawingPanel(MainFrame frame) {
         this.frame = frame; createOffscreenImage(); init();
     }
@@ -46,16 +46,23 @@ public class DrawingPanel extends JPanel {
         colors.put("Black",new Color(0,0,0));
         colors.put("Random",new Color(new Random().nextInt(128) + 128, new Random().nextInt(128) + 128, new Random().nextInt(128) + 128));
         MouseAdapter mouse=new MouseAdapter() {
+            FreeDrawing freeDrawing=new FreeDrawing();
             @Override
             public void mousePressed(MouseEvent e) {
-                if(frame.configPanel.addOrRemove.getSelectedItem()=="Add") {
-                    freeDrawing.addNew(e.getX(),e.getY());
+
+
+                if(frame.configPanel.addOrRemove.getSelectedItem()=="Add"&&frame.configPanel.shapes.getSelectedItem()!="Free Drawing") {
                     drawShape(e.getX(), e.getY());
 
 
                 }
                 else {
+                    if(frame.configPanel.addOrRemove.getSelectedItem()=="Remove")
                     deleteShape(e.getX(),e.getY());
+                    else{
+                        freeDrawing.addNew(e.getX(),e.getY());
+                    }
+
 
                 }
                 repaint();
@@ -64,6 +71,7 @@ public class DrawingPanel extends JPanel {
 
             @Override
             public void mouseDragged(MouseEvent e) {
+
                 if(frame.configPanel.addOrRemove.getSelectedItem()=="Add" && frame.configPanel.shapes.getSelectedItem()=="Free Drawing")
                 {   Color color;
                     if(frame.configPanel.colorCombo.getSelectedItem()=="Black")
@@ -76,8 +84,21 @@ public class DrawingPanel extends JPanel {
                 graphics.setColor(color);
                 graphics.drawLine(freeDrawing.getCurrentX(),freeDrawing.getCurrentY(),e.getX(),e.getY());
                     freeDrawing.addNew(e.getX(),e.getY());
+
                     repaint();
                 }
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e)
+            {   int[] circleInfo=new int[3];
+                circleInfo= freeDrawing.getCircleInfo();
+                if(circleInfo[2]!=0)
+                {
+                    graphics.fill(new NodeShape(circleInfo[0],circleInfo[1],circleInfo[2]));
+                }
+                freeDrawing.deleteList();
+
             }
         };
 
