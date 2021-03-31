@@ -21,9 +21,9 @@ public class DrawingPanel extends JPanel {
     final static int W = 800, H = 600;
     BufferedImage image; //the offscreen image
     Graphics2D graphics; //the "tools" needed to draw in the image
-    LinkedList<Shape> shapes=new LinkedList<Shape>();
-    LinkedList<Color> shapesColor=new LinkedList<Color>();
-    HashMap<String,Color> colors=new HashMap<String,Color>();
+    LinkedList<Shape> shapes= new LinkedList<>();
+    LinkedList<Color> shapesColor= new LinkedList<>();
+    HashMap<String,Color> colors= new HashMap<>();
     FreeDrawing freeDrawing=new FreeDrawing();
     public DrawingPanel(MainFrame frame) {
         this.frame = frame; createOffscreenImage(); init();
@@ -51,15 +51,14 @@ public class DrawingPanel extends JPanel {
                 if(frame.configPanel.addOrRemove.getSelectedItem()=="Add") {
                     freeDrawing.addNew(e.getX(),e.getY());
                     drawShape(e.getX(), e.getY());
-                    repaint();
 
 
                 }
                 else {
                     deleteShape(e.getX(),e.getY());
-                    repaint();
 
                 }
+                repaint();
 
             }
 
