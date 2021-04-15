@@ -29,6 +29,24 @@ public class Board {
         return null;
     }
 
+    public Token getToken(int a ,int b)
+    {
+        if(tokens.size() >=1)
+        {
+            for (Token token: tokens
+                 ) {
+                if(token.a==a&&token.b==b)
+                {
+                    tokens.remove(token);
+                    return token;
+                }
+
+            }
+            return new Token(0,0,0);
+        }
+        return null;
+    }
+
     @Override
     public String toString() {
         return "Board{" +

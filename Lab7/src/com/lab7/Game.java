@@ -38,7 +38,7 @@ public class Game {
 
     private void createGame()
     {
-        setPlayerList(List.of(new Player("Player1"),new Player("Player2")));
+        setPlayerList(List.of(new Player("Robotul"),new Player("Irinel")));
         LinkedList<Token> tokens=new LinkedList<>();
         tokens.add(new Token(100));
         tokens.add(new Token(100));
@@ -62,8 +62,8 @@ public class Game {
 
     public void play()
     {
-        PlayerRunnable player1=new PlayerRunnable(board,playerList.get(0));
-        PlayerRunnable player2=new PlayerRunnable(board,playerList.get(1));
+        PlayerRunnable player1=new PlayerRunnable(board,playerList.get(0),true);
+        PlayerRunnable player2=new PlayerRunnable(board,playerList.get(1),false);
         List<Thread> threadList = new ArrayList<Thread>();
 
 

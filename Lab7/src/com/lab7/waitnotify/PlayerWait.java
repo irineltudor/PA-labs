@@ -17,10 +17,12 @@ public class PlayerWait implements Runnable{
 
                     try {
                         if(player.board.getTokens().size()>1) {
-
                             player.wait();
-
                             player.run();
+                            player.done();
+
+
+
 
                         }
                     } catch (InterruptedException e) {

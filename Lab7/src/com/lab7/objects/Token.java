@@ -19,6 +19,12 @@ public class Token {
         this.cost=random.nextInt(size + 1 - 1) + 1;
     }
 
+    public Token(int i, int i1, int i2) {
+        this.a=i;
+        this.b=i1;
+        this.cost=i2;
+    }
+
     public int getA() {
         return a;
     }

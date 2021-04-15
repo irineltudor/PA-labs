@@ -6,7 +6,7 @@ import com.lab7.objects.PlayerRunnable;
 import java.util.List;
 
 public class PlayerNotify implements Runnable{
-    final List<PlayerRunnable> player;
+    List<PlayerRunnable> player;
 
     public PlayerNotify(List<PlayerRunnable> player)
     {
@@ -14,17 +14,28 @@ public class PlayerNotify implements Runnable{
     }
     @Override
     public void run() {
-
+           boolean firstRun=true;
         while (player.get(1).board.getTokens().size() > 0) {
             for (PlayerRunnable current : player
             ) {
                 synchronized (current) {
-                    try {
-                        current.wait(100);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
+                    if(firstRun)
+                    {
+                        current.notify();
+                        firstRun=false;
                     }
-                    current.notifyAll();
+                    else {
+
+
+                        int index = player.indexOf(current) - 1;
+                        if (index < 0) {
+                            index = player.size() - 1;
+                        }
+                        if (player.get(index).isDone) {
+                            current.notify();
+                            player.get(index).notDone();
+                        }
+                    }
                 }
             }
         }
