@@ -33,7 +33,7 @@ public class FreeDrawing {
          circleInfo=recognizeCircle();
      }
         coordinate.add(List.of(x,y));
-        System.out.println(List.of(x,y));
+
     }
 
 

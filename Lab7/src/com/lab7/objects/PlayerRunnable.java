@@ -1,30 +1,44 @@
 package com.lab7.objects;
 
-public class PlayerRunnable implements Runnable {
-    Player player;
-    Board board;
+import com.lab7.waitnotify.PlayerWait;
 
+public class PlayerRunnable implements Runnable {
+    public Player player;
+    public Board board;
+    boolean first;
+    public PlayerRunnable()
+    { this.player=new Player();
+
+    }
     public PlayerRunnable(Board board, Player player)
     {
         this.board=board;
         this.player=player;
     }
 
-    public void updateBoard(Board board)
-    {
-        this.board=board;
-    }
 
-    public Board getBoard() {
-        return board;
-    }
 
     @Override
     public void run(){
-            if(board.getTokens().size() > 0) {
-                player.addToken(board.getNextToken());
-                updateBoard(board);
-            }
+
+
+//        while (board.getTokens().size() > 0) {
+
+               if(board.getTokens().size() > 0) {
+                   Token token = board.getNextToken();
+                   player.addToken(token);
+                   System.out.println(player.name + " a luat " + token.a + " " + token.b + " cu costul " + token.cost);
+
+               }
+
+//        }
+
+
+
+
+
+
+
 
     }
 

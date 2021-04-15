@@ -6,7 +6,7 @@ import java.util.List;
 public class Player {
     public String name;
     List<Token> tokens=new ArrayList<>();
-
+    public Player(){}
     public Player(String name)
     {
         this.name=name;

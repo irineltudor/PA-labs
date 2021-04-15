@@ -4,7 +4,11 @@ import com.lab7.objects.Board;
 import com.lab7.objects.Player;
 import com.lab7.objects.PlayerRunnable;
 import com.lab7.objects.Token;
+import com.lab7.waitnotify.PlayerNotify;
+import com.lab7.waitnotify.PlayerWait;
 
+
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -60,21 +64,43 @@ public class Game {
     {
         PlayerRunnable player1=new PlayerRunnable(board,playerList.get(0));
         PlayerRunnable player2=new PlayerRunnable(board,playerList.get(1));
+        List<Thread> threadList = new ArrayList<Thread>();
 
 
 
-        while(board.getTokens().size()>0) {
 
-            new Thread(player1).start();
 
-            new Thread(player2).start();
+           PlayerWait wait1=new PlayerWait(player1);
+           PlayerWait wait2=new PlayerWait(player2);
+           PlayerNotify notify=new PlayerNotify(List.of(player1,player2));
 
+           Thread t1=new Thread(wait1);
+           t1.start();
+           threadList.add(t1);
+           Thread t2=new Thread(wait2);
+           t2.start();
+           threadList.add(t2);
+           Thread t3=new Thread(notify);
+           t3.start();
+           threadList.add(t3);
+
+        for(Thread t : threadList) {
+
+            try {
+                t.join();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
+
+//           new Thread(player1).start();
+//
+//           new Thread(player2).start();
+
 
         System.out.println(playerList.get(0));
         System.out.println(playerList.get(1));
-
-        System.out.println(printWinner());
+        System.out.println("Castigatorul este:" + printWinner());
 
 
     }

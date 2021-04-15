@@ -29,5 +29,10 @@ public class Board {
         return null;
     }
 
-
+    @Override
+    public String toString() {
+        return "Board{" +
+                "tokens=" + tokens +
+                '}';
+    }
 }
