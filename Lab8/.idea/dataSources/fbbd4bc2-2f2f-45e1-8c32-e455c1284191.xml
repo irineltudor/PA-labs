@@ -1,19 +1,209 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataSource name="lab8java@localhost">
-  <database-model serializer="dbm" dbms="MARIADB" family-id="MARIADB" format-version="4.20">
+  <database-model serializer="dbm" dbms="MARIADB" family-id="MARIADB" format-version="4.21">
     <root id="1">
       <ServerVersion>10.5.9</ServerVersion>
+      <Grants>|root||root|127.0.0.1|ALTER|G
+|root||root|::1|ALTER|G
+|root||root|desktop-1gcl5rp|ALTER|G
+|root||root|localhost|ALTER|G
+|root||root|127.0.0.1|ALTER ROUTINE|G
+|root||root|::1|ALTER ROUTINE|G
+|root||root|desktop-1gcl5rp|ALTER ROUTINE|G
+|root||root|localhost|ALTER ROUTINE|G
+|root||root|127.0.0.1|BINLOG ADMIN|G
+|root||root|::1|BINLOG ADMIN|G
+|root||root|desktop-1gcl5rp|BINLOG ADMIN|G
+|root||root|localhost|BINLOG ADMIN|G
+|root||root|127.0.0.1|BINLOG MONITOR|G
+|root||root|::1|BINLOG MONITOR|G
+|root||root|desktop-1gcl5rp|BINLOG MONITOR|G
+|root||root|localhost|BINLOG MONITOR|G
+|root||root|127.0.0.1|BINLOG REPLAY|G
+|root||root|::1|BINLOG REPLAY|G
+|root||root|desktop-1gcl5rp|BINLOG REPLAY|G
+|root||root|localhost|BINLOG REPLAY|G
+|root||root|127.0.0.1|CONNECTION ADMIN|G
+|root||root|::1|CONNECTION ADMIN|G
+|root||root|desktop-1gcl5rp|CONNECTION ADMIN|G
+|root||root|localhost|CONNECTION ADMIN|G
+|root||root|127.0.0.1|CREATE|G
+|root||root|::1|CREATE|G
+|root||root|desktop-1gcl5rp|CREATE|G
+|root||root|localhost|CREATE|G
+|root||root|127.0.0.1|CREATE ROUTINE|G
+|root||root|::1|CREATE ROUTINE|G
+|root||root|desktop-1gcl5rp|CREATE ROUTINE|G
+|root||root|localhost|CREATE ROUTINE|G
+|root||root|127.0.0.1|CREATE TABLESPACE|G
+|root||root|::1|CREATE TABLESPACE|G
+|root||root|desktop-1gcl5rp|CREATE TABLESPACE|G
+|root||root|localhost|CREATE TABLESPACE|G
+|root||root|127.0.0.1|CREATE TEMPORARY TABLES|G
+|root||root|::1|CREATE TEMPORARY TABLES|G
+|root||root|desktop-1gcl5rp|CREATE TEMPORARY TABLES|G
+|root||root|localhost|CREATE TEMPORARY TABLES|G
+|root||root|127.0.0.1|CREATE USER|G
+|root||root|::1|CREATE USER|G
+|root||root|desktop-1gcl5rp|CREATE USER|G
+|root||root|localhost|CREATE USER|G
+|root||root|127.0.0.1|CREATE VIEW|G
+|root||root|::1|CREATE VIEW|G
+|root||root|desktop-1gcl5rp|CREATE VIEW|G
+|root||root|localhost|CREATE VIEW|G
+|root||root|127.0.0.1|DELETE|G
+|root||root|::1|DELETE|G
+|root||root|desktop-1gcl5rp|DELETE|G
+|root||root|localhost|DELETE|G
+|root||root|127.0.0.1|DELETE HISTORY|G
+|root||root|::1|DELETE HISTORY|G
+|root||root|desktop-1gcl5rp|DELETE HISTORY|G
+|root||root|localhost|DELETE HISTORY|G
+|root||root|127.0.0.1|DROP|G
+|root||root|::1|DROP|G
+|root||root|desktop-1gcl5rp|DROP|G
+|root||root|localhost|DROP|G
+|root||root|127.0.0.1|EVENT|G
+|root||root|::1|EVENT|G
+|root||root|desktop-1gcl5rp|EVENT|G
+|root||root|localhost|EVENT|G
+|root||root|127.0.0.1|EXECUTE|G
+|root||root|::1|EXECUTE|G
+|root||root|desktop-1gcl5rp|EXECUTE|G
+|root||root|localhost|EXECUTE|G
+|root||root|127.0.0.1|FEDERATED ADMIN|G
+|root||root|::1|FEDERATED ADMIN|G
+|root||root|desktop-1gcl5rp|FEDERATED ADMIN|G
+|root||root|localhost|FEDERATED ADMIN|G
+|root||root|127.0.0.1|FILE|G
+|root||root|::1|FILE|G
+|root||root|desktop-1gcl5rp|FILE|G
+|root||root|localhost|FILE|G
+|root||root|127.0.0.1|INDEX|G
+|root||root|::1|INDEX|G
+|root||root|desktop-1gcl5rp|INDEX|G
+|root||root|localhost|INDEX|G
+|root||root|127.0.0.1|INSERT|G
+|root||root|::1|INSERT|G
+|root||root|desktop-1gcl5rp|INSERT|G
+|root||root|localhost|INSERT|G
+|root||root|127.0.0.1|LOCK TABLES|G
+|root||root|::1|LOCK TABLES|G
+|root||root|desktop-1gcl5rp|LOCK TABLES|G
+|root||root|localhost|LOCK TABLES|G
+|root||root|127.0.0.1|PROCESS|G
+|root||root|::1|PROCESS|G
+|root||root|desktop-1gcl5rp|PROCESS|G
+|root||root|localhost|PROCESS|G
+|root||root|127.0.0.1|READ_ONLY ADMIN|G
+|root||root|::1|READ_ONLY ADMIN|G
+|root||root|desktop-1gcl5rp|READ_ONLY ADMIN|G
+|root||root|localhost|READ_ONLY ADMIN|G
+|root||root|127.0.0.1|REFERENCES|G
+|root||root|::1|REFERENCES|G
+|root||root|desktop-1gcl5rp|REFERENCES|G
+|root||root|localhost|REFERENCES|G
+|root||root|127.0.0.1|RELOAD|G
+|root||root|::1|RELOAD|G
+|root||root|desktop-1gcl5rp|RELOAD|G
+|root||root|localhost|RELOAD|G
+|root||root|127.0.0.1|REPLICATION MASTER ADMIN|G
+|root||root|::1|REPLICATION MASTER ADMIN|G
+|root||root|desktop-1gcl5rp|REPLICATION MASTER ADMIN|G
+|root||root|localhost|REPLICATION MASTER ADMIN|G
+|root||root|127.0.0.1|REPLICATION SLAVE|G
+|root||root|::1|REPLICATION SLAVE|G
+|root||root|desktop-1gcl5rp|REPLICATION SLAVE|G
+|root||root|localhost|REPLICATION SLAVE|G
+|root||root|127.0.0.1|REPLICATION SLAVE ADMIN|G
+|root||root|::1|REPLICATION SLAVE ADMIN|G
+|root||root|desktop-1gcl5rp|REPLICATION SLAVE ADMIN|G
+|root||root|localhost|REPLICATION SLAVE ADMIN|G
+|root||root|127.0.0.1|SELECT|G
+|root||root|::1|SELECT|G
+|root||root|desktop-1gcl5rp|SELECT|G
+|root||root|localhost|SELECT|G
+|root||root|127.0.0.1|SET USER|G
+|root||root|::1|SET USER|G
+|root||root|desktop-1gcl5rp|SET USER|G
+|root||root|localhost|SET USER|G
+|root||root|127.0.0.1|SHOW DATABASES|G
+|root||root|::1|SHOW DATABASES|G
+|root||root|desktop-1gcl5rp|SHOW DATABASES|G
+|root||root|localhost|SHOW DATABASES|G
+|root||root|127.0.0.1|SHOW VIEW|G
+|root||root|::1|SHOW VIEW|G
+|root||root|desktop-1gcl5rp|SHOW VIEW|G
+|root||root|localhost|SHOW VIEW|G
+|root||root|127.0.0.1|SHUTDOWN|G
+|root||root|::1|SHUTDOWN|G
+|root||root|desktop-1gcl5rp|SHUTDOWN|G
+|root||root|localhost|SHUTDOWN|G
+|root||root|127.0.0.1|SLAVE MONITOR|G
+|root||root|::1|SLAVE MONITOR|G
+|root||root|desktop-1gcl5rp|SLAVE MONITOR|G
+|root||root|localhost|SLAVE MONITOR|G
+|root||root|127.0.0.1|SUPER|G
+|root||root|::1|SUPER|G
+|root||root|desktop-1gcl5rp|SUPER|G
+|root||root|localhost|SUPER|G
+|root||root|127.0.0.1|TRIGGER|G
+|root||root|::1|TRIGGER|G
+|root||root|desktop-1gcl5rp|TRIGGER|G
+|root||root|localhost|TRIGGER|G
+|root||root|127.0.0.1|UPDATE|G
+|root||root|::1|UPDATE|G
+|root||root|desktop-1gcl5rp|UPDATE|G
+|root||root|localhost|UPDATE|G
+|root||root|127.0.0.1|grant option|G
+|root||root|::1|grant option|G
+|root||root|desktop-1gcl5rp|grant option|G
+|root||root|localhost|grant option|G
+test|schema||&apos;&apos;||ALTER|G
+test|schema||&apos;&apos;||CREATE|G
+test|schema||&apos;&apos;||CREATE ROUTINE|G
+test|schema||&apos;&apos;||CREATE TEMPORARY TABLES|G
+test|schema||&apos;&apos;||CREATE VIEW|G
+test|schema||&apos;&apos;||DELETE|G
+test|schema||&apos;&apos;||DELETE HISTORY|G
+test|schema||&apos;&apos;||DROP|G
+test|schema||&apos;&apos;||EVENT|G
+test|schema||&apos;&apos;||INDEX|G
+test|schema||&apos;&apos;||INSERT|G
+test|schema||&apos;&apos;||LOCK TABLES|G
+test|schema||&apos;&apos;||REFERENCES|G
+test|schema||&apos;&apos;||SELECT|G
+test|schema||&apos;&apos;||SHOW VIEW|G
+test|schema||&apos;&apos;||TRIGGER|G
+test|schema||&apos;&apos;||UPDATE|G
+test\\_%|schema||&apos;&apos;||ALTER|G
+test\\_%|schema||&apos;&apos;||CREATE|G
+test\\_%|schema||&apos;&apos;||CREATE ROUTINE|G
+test\\_%|schema||&apos;&apos;||CREATE TEMPORARY TABLES|G
+test\\_%|schema||&apos;&apos;||CREATE VIEW|G
+test\\_%|schema||&apos;&apos;||DELETE|G
+test\\_%|schema||&apos;&apos;||DELETE HISTORY|G
+test\\_%|schema||&apos;&apos;||DROP|G
+test\\_%|schema||&apos;&apos;||EVENT|G
+test\\_%|schema||&apos;&apos;||INDEX|G
+test\\_%|schema||&apos;&apos;||INSERT|G
+test\\_%|schema||&apos;&apos;||LOCK TABLES|G
+test\\_%|schema||&apos;&apos;||REFERENCES|G
+test\\_%|schema||&apos;&apos;||SELECT|G
+test\\_%|schema||&apos;&apos;||SHOW VIEW|G
+test\\_%|schema||&apos;&apos;||TRIGGER|G
+test\\_%|schema||&apos;&apos;||UPDATE|G</Grants>
       <DefaultEngine>InnoDB</DefaultEngine>
       <DefaultCasing>lower/lower</DefaultCasing>
     </root>
-    <schema id="2" parent="1" name="information_schema">
-      <Collation>utf8_general_ci</Collation>
-    </schema>
-    <schema id="3" parent="1" name="lab8java">
-      <Current>1</Current>
+    <schema id="2" parent="1" name="electroway">
       <Collation>latin1_swedish_ci</Collation>
     </schema>
-    <schema id="4" parent="1" name="mariadb">
+    <schema id="3" parent="1" name="information_schema">
+      <Collation>utf8_general_ci</Collation>
+    </schema>
+    <schema id="4" parent="1" name="lab8java">
+      <Current>1</Current>
       <Collation>latin1_swedish_ci</Collation>
     </schema>
     <schema id="5" parent="1" name="mysql">
@@ -1033,100 +1223,146 @@
     </collation>
     <user id="330" parent="1" name="mariadb.sys">
       <Host>localhost</Host>
-      <ObjectGrants>SELECT,DELETE|mysql.global_priv
-</ObjectGrants>
     </user>
     <user id="331" parent="1" name="root">
       <Host>127.0.0.1</Host>
-      <ObjectGrants>ALL PRIVILEGES!
-</ObjectGrants>
     </user>
     <user id="332" parent="1" name="root">
       <Host>::1</Host>
-      <ObjectGrants>ALL PRIVILEGES!
-</ObjectGrants>
     </user>
     <user id="333" parent="1" name="root">
       <Host>desktop-1gcl5rp</Host>
-      <ObjectGrants>ALL PRIVILEGES!
-</ObjectGrants>
     </user>
     <user id="334" parent="1" name="root">
       <Host>localhost</Host>
-      <ObjectGrants>ALL PRIVILEGES!
-</ObjectGrants>
     </user>
-    <table id="335" parent="3" name="genres"/>
-    <table id="336" parent="3" name="movies"/>
-    <table id="337" parent="3" name="moviesgenre"/>
-    <column id="338" parent="335" name="id">
+    <table id="335" parent="4" name="genres"/>
+    <table id="336" parent="4" name="movie_actors"/>
+    <table id="337" parent="4" name="movie_directors"/>
+    <table id="338" parent="4" name="movies"/>
+    <table id="339" parent="4" name="movies_genre"/>
+    <column id="340" parent="335" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="339" parent="335" name="name">
+    <column id="341" parent="335" name="name">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
     </column>
-    <key id="340" parent="335" name="PRIMARY">
+    <key id="342" parent="335" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="341" parent="336" name="id">
+    <column id="343" parent="336" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="342" parent="336" name="title">
+    <column id="344" parent="336" name="name">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
     </column>
-    <column id="343" parent="336" name="release_date">
-      <Position>3</Position>
-      <DataType>varchar(255)|0s</DataType>
-    </column>
-    <column id="344" parent="336" name="score">
-      <Position>4</Position>
-      <DataType>int(11)|0s</DataType>
-    </column>
-    <key id="345" parent="336" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <ColNames>id</ColNames>
-      <Primary>1</Primary>
-    </key>
-    <column id="346" parent="337" name="id">
-      <Position>1</Position>
-      <DataType>int(11)|0s</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <column id="347" parent="337" name="movieId">
-      <Position>2</Position>
-      <DataType>int(11)|0s</DataType>
-    </column>
-    <column id="348" parent="337" name="genreId">
+    <column id="345" parent="336" name="movieId">
       <Position>3</Position>
       <DataType>int(11)|0s</DataType>
     </column>
-    <index id="349" parent="337" name="movieId">
+    <index id="346" parent="336" name="movieId">
       <ColNames>movieId</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="350" parent="337" name="genreId">
-      <ColNames>genreId</ColNames>
-      <Type>btree</Type>
-    </index>
-    <key id="351" parent="337" name="PRIMARY">
+    <key id="347" parent="336" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="352" parent="337" name="moviesgenre_ibfk_1">
+    <foreign-key id="348" parent="336" name="movie_actors_ibfk_1">
       <ColNames>movieId</ColNames>
       <RefTableName>movies</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="353" parent="337" name="moviesgenre_ibfk_2">
+    <column id="349" parent="337" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="350" parent="337" name="name">
+      <Position>2</Position>
+      <DataType>varchar(255)|0s</DataType>
+    </column>
+    <column id="351" parent="337" name="movieId">
+      <Position>3</Position>
+      <DataType>int(11)|0s</DataType>
+    </column>
+    <index id="352" parent="337" name="movieId">
+      <ColNames>movieId</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="353" parent="337" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="354" parent="337" name="movie_directors_ibfk_1">
+      <ColNames>movieId</ColNames>
+      <RefTableName>movies</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="355" parent="338" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="356" parent="338" name="title">
+      <Position>2</Position>
+      <DataType>varchar(255)|0s</DataType>
+    </column>
+    <column id="357" parent="338" name="release_date">
+      <Position>3</Position>
+      <DataType>varchar(255)|0s</DataType>
+    </column>
+    <column id="358" parent="338" name="score">
+      <Position>4</Position>
+      <DataType>int(11)|0s</DataType>
+    </column>
+    <key id="359" parent="338" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="360" parent="339" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="361" parent="339" name="movieId">
+      <Position>2</Position>
+      <DataType>int(11)|0s</DataType>
+    </column>
+    <column id="362" parent="339" name="genreId">
+      <Position>3</Position>
+      <DataType>int(11)|0s</DataType>
+    </column>
+    <index id="363" parent="339" name="movieId">
+      <ColNames>movieId</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="364" parent="339" name="genreId">
+      <ColNames>genreId</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="365" parent="339" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="366" parent="339" name="movies_genre_ibfk_1">
+      <ColNames>movieId</ColNames>
+      <RefTableName>movies</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="367" parent="339" name="movies_genre_ibfk_2">
       <ColNames>genreId</ColNames>
       <RefTableName>genres</RefTableName>
       <RefColNames>id</RefColNames>

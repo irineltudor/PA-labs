@@ -1,19 +1,19 @@
 package com.lab8.interfaces;
 
-
-import com.lab8.objects.Movie;
+import com.lab8.objects.Director;
+import com.lab8.objects.MovieGenre;
 
 import java.sql.SQLException;
 import java.util.List;
 
-public interface MovieDAO{
-    void add(Movie movie)
+public interface MovieGenreDAO {
+    void add(MovieGenre movieGenre)
             throws SQLException;
     void delete(int id)
             throws SQLException;
-    Movie get(int id)
+    MovieGenre get(int id)
             throws SQLException;
-    List<Movie> get()
+    List<MovieGenre> get()
             throws SQLException;
     void update(int id)
             throws SQLException;

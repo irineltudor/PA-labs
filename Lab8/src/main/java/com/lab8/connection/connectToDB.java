@@ -12,7 +12,7 @@ public class connectToDB{
     {
         String url = "jdbc:mysql://localhost:3306/lab8java";
         String user = "root";
-        String pass = "2000";
+        String pass = "root";
         try {
 
             conn = DriverManager.getConnection(url, user, pass);

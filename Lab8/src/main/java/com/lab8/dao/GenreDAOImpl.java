@@ -16,13 +16,27 @@ public class GenreDAOImpl implements GenreDAO {
     public void add(Genre genre) throws SQLException {
 
         String query
-                = "insert into genres VALUES (?, ?)";
+                = "select * from genres where name = ?";
         PreparedStatement ps
                 = conn.prepareStatement(query);
-        ps.setInt(1,id);
-        id++;
-        ps.setString(2, genre.name);
-        ps.executeUpdate();
+
+        ps.setString(1, genre.name);
+        ResultSet rs = ps.executeQuery();
+        boolean check = true;
+        while (rs.next()) {
+            check = false;
+        }
+
+        if(check) {
+            String query1
+                    = "insert into genres VALUES (?, ?)";
+            PreparedStatement ps1
+                    = conn.prepareStatement(query1);
+            ps1.setInt(1, id);
+            id++;
+            ps1.setString(2, genre.name);
+            ps1.executeUpdate();
+        }
 
 
     }
@@ -54,6 +68,31 @@ public class GenreDAOImpl implements GenreDAO {
         }
         else
             return null;
+    }
+
+    public int get(String name) throws SQLException {
+        String query
+                = "select * from genres where name = ?";
+        PreparedStatement ps
+                = conn.prepareStatement(query);
+
+        ps.setString(1, name);
+        Genre genre = new Genre();
+        ResultSet rs = ps.executeQuery();
+        boolean check = false;
+        int id=-1;
+
+        while (rs.next()) {
+            check = true;
+            id=rs.getInt("id");
+
+        }
+
+        if (check) {
+            return id;
+        }
+        else
+            return -1;
     }
 
     @Override

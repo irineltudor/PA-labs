@@ -1,8 +1,8 @@
 package com.lab8.dao;
 
 import com.lab8.connection.connectToDB;
-import com.lab8.interfaces.MovieDAO;
-import com.lab8.objects.Movie;
+import com.lab8.interfaces.MovieGenreDAO;
+import com.lab8.objects.MovieGenre;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,21 +10,20 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-public class MovieDAOImpl implements MovieDAO {
+public class MovieGenreDAOImpl implements MovieGenreDAO {
     int id=0;
     static Connection conn
             = connectToDB.getConnection();
     @Override
-    public void add(Movie movie) throws SQLException {
+    public void add(MovieGenre movieGenre) throws SQLException {
         String query
-                = "insert into movies VALUES (?, ?, ?, ?)";
+                = "insert into movies_genre VALUES (?, ?, ?)";
         PreparedStatement ps
                 = conn.prepareStatement(query);
         ps.setInt(1,id);
         id++;
-        ps.setString(2, movie.title);
-        ps.setString(3, movie.release_date);
-        ps.setDouble(4,movie.score);
+        ps.setInt(2, movieGenre.getMovieId());
+        ps.setInt(3, movieGenre.getGenreId());
         ps.executeUpdate();
 
     }
@@ -34,48 +33,43 @@ public class MovieDAOImpl implements MovieDAO {
 
     }
 
-   @Override
-    public Movie get(int id) throws SQLException {
+    @Override
+    public MovieGenre get(int id) throws SQLException {
 
 
 
         String query
-                = "select * from movies where id= ?";
+                = "select * from movies_genre where movieId= ?";
         PreparedStatement ps
                 = conn.prepareStatement(query);
 
         ps.setInt(1, id);
-        Movie movie= new Movie();
+        MovieGenre movieGenre= new MovieGenre();
         ResultSet rs = ps.executeQuery();
         boolean check = false;
 
         while (rs.next()) {
             check = true;
-            movie.setTitle(rs.getString("title"));
-            movie.setRelease_date(rs.getString("release_date"));
-            movie.setScore(rs.getDouble("score"));
+            movieGenre.setMovieId(rs.getInt("movieId"));
+            movieGenre.setGenreId(rs.getInt("genreId"));
 
 
         }
 
         if (check) {
-            return movie;
+            return movieGenre;
         }
         else
             return null;
     }
 
     @Override
-    public List<Movie> get(){
+    public List<MovieGenre> get(){
         return null;
     }
 
     @Override
     public void update(int id){
 
-    }
-
-    public int getId() {
-        return id;
     }
 }
