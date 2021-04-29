@@ -1,5 +1,6 @@
 package com.lab9.manager;
 
+
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
@@ -14,8 +15,10 @@ public class ManagerEntity {
         if (!flag) {
 
             flag = true;
-            factory = Persistence.createEntityManagerFactory("MyApplicationPU");
+            factory = Persistence.createEntityManagerFactory("lab9");
         }
         return factory;
     }
+
+
 }

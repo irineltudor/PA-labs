@@ -1,15 +1,13 @@
 package com.lab9.entities;
 
 import javax.persistence.*;
-import java.util.Collection;
 import java.util.Objects;
 
 @Entity
-@Table(name = "genres", schema = "lab8java")
+@Table(name = "genres", schema = "lab8java", catalog = "")
 public class GenresEntity {
     private int id;
     private String name;
-    private Collection<MoviesGenreEntity> moviesGenresById;
 
     @Id
     @Column(name = "id", nullable = false)
@@ -44,12 +42,11 @@ public class GenresEntity {
         return Objects.hash(id, name);
     }
 
-    @OneToMany(mappedBy = "genresByGenreId")
-    public Collection<MoviesGenreEntity> getMoviesGenresById() {
-        return moviesGenresById;
-    }
-
-    public void setMoviesGenresById(Collection<MoviesGenreEntity> moviesGenresById) {
-        this.moviesGenresById = moviesGenresById;
+    @Override
+    public String toString() {
+        return "GenresEntity{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
     }
 }
