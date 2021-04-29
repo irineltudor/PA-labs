@@ -63,4 +63,14 @@ public class MoviesEntity {
     public int hashCode() {
         return Objects.hash(id, title, releaseDate, score);
     }
+
+    @Override
+    public String toString() {
+        return "MoviesEntity{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", releaseDate='" + releaseDate + '\'' +
+                ", score=" + score +
+                '}';
+    }
 }

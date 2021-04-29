@@ -3,9 +3,14 @@ package com.lab9.entities;
 import javax.persistence.*;
 import java.util.Objects;
 
+
 @Entity
 @Table(name = "genres", schema = "lab8java", catalog = "")
+@NamedQueries({
+        @NamedQuery(name=GenresEntity.QUERY_FIND_BY_NAME,query="SELECT c FROM GenresEntity c WHERE c.name = :name")
+})
 public class GenresEntity {
+    public static final String QUERY_FIND_BY_NAME = "findByName";
     private int id;
     private String name;
 

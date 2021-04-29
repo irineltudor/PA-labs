@@ -12,13 +12,23 @@ public class GenresRepository {
     public GenresRepository(EntityManager entityManager) {
         this.entityManager = entityManager;
     }
-    public Optional<GenresEntity> findById(Integer id) {
+    public GenresEntity findById(Integer id) {
         GenresEntity genresEntity = entityManager.find(GenresEntity.class, id);
-        return genresEntity != null ? Optional.of(genresEntity) : Optional.empty();
+        return genresEntity;
     }
+
     public List<GenresEntity> findAll() {
         return entityManager.createQuery("from GenresEntity").getResultList();
     }
+
+    public GenresEntity findByNameNamedQuery(String name) {
+        GenresEntity genresEntity= entityManager.createNamedQuery(GenresEntity.QUERY_FIND_BY_NAME, GenresEntity.class)
+                .setParameter("name", name)
+                .getSingleResult();
+        return genresEntity;
+    }
+
+
         public GenresEntity findByName(String name) {
         GenresEntity genresEntity= entityManager.createQuery("SELECT g FROM GenresEntity g WHERE g.name = :name", GenresEntity.class)
                 .setParameter("name", name)
