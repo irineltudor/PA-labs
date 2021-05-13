@@ -1,4 +1,4 @@
-package com.lab11.objects;
+package com.lab11.person;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

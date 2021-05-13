@@ -1,4 +1,4 @@
-package com.lab11.objects;
+package com.lab11.person;
 
 import javax.persistence.*;
 import java.time.LocalDate;
