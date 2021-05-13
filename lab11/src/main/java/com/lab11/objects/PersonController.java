@@ -36,7 +36,7 @@ public class PersonController {
 
     @PutMapping(path = "{personId}")
     public void updatePerson(
-            @PathVariable("{personId}") Long personId,
+            @PathVariable("personId") Long personId,
             @RequestParam(required = false) String name,
             @RequestParam(required = false) String email)
     {

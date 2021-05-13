@@ -58,6 +58,17 @@ public class PersonService {
             person.setName(name);
         }
 
+        if( email !=null && email.length()>0 && !Objects.equals(person.getEmail(),email))
+        {
+            Optional<Person> personOptional = personRepository.findPersonByEmail(person.getEmail());
+            if(personOptional.isPresent())
+            {
+                throw new IllegalStateException("email taken");
+            }
+
+            person.setEmail(email);
+        }
+
 
 
     }
