@@ -1,1 +1,1 @@
-Urma + Zaharia compulsory done
+Urma + Zaharia compulsory + optional ( without the integration into previous project)

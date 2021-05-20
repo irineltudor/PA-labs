@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -21,6 +22,18 @@ public class PersonService {
     public List<Person> getPersons()
     {
         return personRepository.findAll();
+    }
+
+    public List<Person> getMostPopular(int k)
+    {   List<Person> persons = new LinkedList<>();
+        List<Person> query= personRepository.getMostPopular();
+        for(Person person : query)
+        {   persons.add(person);
+            k--;
+            if(k==0)
+                break;
+        }
+        return persons;
     }
 
     public void addNewPerson(Person person) {

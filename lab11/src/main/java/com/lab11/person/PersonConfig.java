@@ -26,7 +26,13 @@ public class PersonConfig {
                     LocalDate.of(2000, Month.APRIL,21)
             );
 
-            repository.saveAll(List.of(irinel,andrei));
+            Person tudor = new Person (
+                    "tudor",
+                    "tudor@gmail.com",
+                    LocalDate.of(2000, Month.MAY,24)
+            );
+
+            repository.saveAll(List.of(irinel,andrei,tudor));
         };
     }
 }
